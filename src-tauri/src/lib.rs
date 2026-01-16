@@ -129,8 +129,10 @@ fn npm_global_bin_dir() -> Option<PathBuf> {
 fn candidate_opencode_paths() -> Vec<PathBuf> {
   let mut candidates = Vec::new();
 
-  if let Some(home) = home_dir() {
-    candidates.push(home.join(".opencode").join("bin").join(OPENCODE_EXECUTABLE));
+  let home = home_dir();
+
+  if let Some(ref h) = home {
+    candidates.push(h.join(".opencode").join("bin").join(OPENCODE_EXECUTABLE));
   }
 
   #[cfg(windows)]
@@ -142,8 +144,8 @@ fn candidate_opencode_paths() -> Vec<PathBuf> {
     }
 
     // Also check in user's home .opencode\bin with .cmd extension
-    if let Some(home) = home_dir() {
-      candidates.push(home.join(".opencode").join("bin").join(OPENCODE_CMD));
+    if let Some(ref h) = home {
+      candidates.push(h.join(".opencode").join("bin").join(OPENCODE_CMD));
     }
   }
 
@@ -189,7 +191,9 @@ fn opencode_supports_serve(program: &OsStr) -> bool {
 fn resolve_opencode_executable() -> (Option<PathBuf>, bool, Vec<String>) {
   let mut notes = Vec::new();
 
-  // Try to find opencode.exe (or opencode on Unix) in PATH first
+  // Try to find opencode executable in PATH first.
+  // On Windows, we check for both opencode.exe and opencode.cmd (npm wrapper).
+  // On Unix, we check for opencode.
   if let Some(path) = resolve_in_path(OPENCODE_EXECUTABLE) {
     notes.push(format!("Found in PATH: {}", path.display()));
     return (Some(path), true, notes);
