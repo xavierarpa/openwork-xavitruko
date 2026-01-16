@@ -23,15 +23,15 @@ Download the installer for your platform from [GitHub Releases](https://github.c
 
 | Platform | Download | Notes |
 |----------|----------|-------|
-| **Windows** | `OpenWork_x.x.x_x64-setup.exe` or `OpenWork_x.x.x_x64_en-US.msi` | Run the installer, then launch OpenWork |
-| **macOS (Apple Silicon)** | `OpenWork_x.x.x_aarch64.dmg` | Drag to Applications, then open |
-| **macOS (Intel)** | `OpenWork_x.x.x_x64.dmg` | Drag to Applications, then open |
+| **Windows** | `OpenWork_{version}_x64-setup.exe` or `OpenWork_{version}_x64_en-US.msi` | Run the installer, then launch OpenWork |
+| **macOS (Apple Silicon)** | `OpenWork_{version}_aarch64.dmg` | Drag to Applications, then open |
+| **macOS (Intel)** | `OpenWork_{version}_x64.dmg` | Drag to Applications, then open |
 
 > **Prerequisite**: You need [OpenCode CLI](https://opencode.ai) installed on your system. OpenWork will detect it automatically or guide you through installation on first launch.
 
 ### Windows Installation (1-Click)
 
-1. Download `OpenWork_x.x.x_x64-setup.exe` from [Releases](https://github.com/different-ai/openwork/releases)
+1. Download `OpenWork_{version}_x64-setup.exe` from [Releases](https://github.com/different-ai/openwork/releases)
 2. Run the installer
 3. Launch **OpenWork** from Start Menu
 4. If OpenCode CLI is not installed, OpenWork will show instructions (install via [Scoop](https://scoop.sh), [Chocolatey](https://chocolatey.org), or from https://opencode.ai/install)
